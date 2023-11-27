@@ -102,7 +102,7 @@ print(df.last("7D")) """
 
 #kospi
 
-import FinanceDataReader as fdr
+#import FinanceDataReader as fdr
 
 # ksp =fdr.DataReader("KS11", "2001")
 # print(ksp)
@@ -149,7 +149,7 @@ print("\n---------------------------\n")
 
 
 #부동산 정보 처리
-import pandas as pd
+# import pandas as pd
 
 
 """ target = "./data/apt.csv"
@@ -176,28 +176,54 @@ print(df.head()) """
 
 # 컬럼명 바꾸기
 
-target = "./data/apt.csv"
+#target = "./data/apt.csv"
 
-df = pd.read_csv("./data/conv_apt.csv", index_col=0)
+# df = pd.read_csv("./data/conv_apt.csv", index_col=0)
 
 # print(df.head())
 
-df = df.rename(columns={"분양가격(제곱미터)":"분양가"})
+# df = df.rename(columns={"분양가격(제곱미터)":"분양가"})
 # print(df)
 # print(df.dtypes)
 
-df["분양가"] = df["분양가"].convert_dtypes()
+# df["분양가"] = df["분양가"].convert_dtypes()
 # print(df.dtypes)
 
 #convert the array
 
-arr = df.to_numpy()
+# arr = df.to_numpy()
 # print(arr)
 # print(len(arr))
 
 #요약정보
 # print(df.describe())
 
-print(df.transpose())
+""" print(df.transpose())
 print("\n---------------------------\n")
-print(df.T.head())
+print(df.T.head()) """
+
+
+################################################################
+################################################################
+
+#11.27 lec
+
+import pandas as pd
+
+target = "./data/apt.csv"
+
+df = pd.read_csv(target, encoding = "CP949")
+
+df.to_csv("./data/conv_apt.csv", encoding="utf8")
+print(df.head())
+
+df = df.rename(columns={"분양가격(제곱미터)":"분양가"})
+print(df)
+print(df.dtypes)
+
+arr = df.to_numpy()
+print(arr)
+print(len(arr))
+
+#요약정보
+print(df.describe())
